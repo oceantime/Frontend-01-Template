@@ -62,9 +62,10 @@ LogicalExpression
      （2）：式子右边的产生式是（终结符+非终结符）的格式
 
 3. 计算机语言分类(待更正)
-1型文法 JavaScript Python 
-2型文法 C、Pascal、Java、C#、C++、PHP、0C、 Swift、Go、Scala、R
-3型文法 正则表达式 SQL
+
+###### 1型文法 JavaScript Python SQL 正则表达式
+###### 2型文法 C、Pascal、Java、C#、C++、PHP、0C、 Swift、Go、Scala、R
+###### 3型文法 汇编
 
 
 4. 写一个正则表达式 匹配所有 Number 直接量
