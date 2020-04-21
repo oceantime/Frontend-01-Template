@@ -161,15 +161,55 @@ console.log(content);   // 输出 厉害了!
 
 6. 写一个正则表达式，匹配所有的字符串直接量，单引号和双引号
 
+一、字符直接量定义：   
+
+1、正则表达式中的所有字母和数字都是按照字面含义进行匹配的，JavaScript正则表达式语法也支持非字母的字符匹配，而这些字符需要通过反斜线（\）作为前缀进行转义。
+
+常用转义字符
+
+字符	匹配
+字母和数字字符	为自身
+\o	NUL字符(\u0000)
+\t	制表符(\u0009)
+\n	换行符(\000A)
+\v	垂直制表符(\u000B)
+\f	换页符(\u000C)
+\r	回车符(\u000D)
+\xnn	由十六进制nn指定的拉丁字符，例如\x0A等价于\n
+\uxxxx	由十六进制数xxxx指定的Unicode字符，例如\u0009等价于\t
+\cX	控制字符^X，例如\cJ等价于换行符\n
+注释：部分摘录《JavaScript权威指南》第六版
+
+2、被用来表示的字符被称为直接量，例如下面的红色部分就是字符直接量      
+
+var s="javascript";//字符直接量，" "引号是字符串直接量的语法分隔符
+
+二、字符的表示方法（字符直接量）有多种：   
+
+1、直接使用字符来表示它们本身 如：“javascript”
+
+2、ASCII编码     
+
+　　a、\x两位的十六进制值   如 “\x61”表示字母“a”     
+
+　　b、\八进制数值   如“\141” 表示字母“a”     
+
+注意：十进制的ASCII编码值是不能够直接使用的，ASCII编码只能够匹配有限的单字节拉丁字符，对于双字节的汉字等字符是无法表示的。   
+
+3、Unicode编码      
+
+	a、\u四位的十六进制值  如“\u0061” 表示字母“a”。      
+        如：[\u0F00-\u0FFF] 匹配所有的藏文字符。   
+
+4、Javascript还支持的其他一些预定义的特殊字符 如：\o\t\n\v\f\r\a\e\b\xX，具体请参考手册      
+
+    注意：因为/\b/表示单词的边界，所有必须/[\b]/表示退格符
+
 ``` javascript
 
 var html = '<div id="wrapper" class="wrapper_s"><div id="head" class=""><div id="s_top_wrap" class="s-top-wrap s-isindex-wrap" style="left: 0px;"><div class="s-top-nav" style="display: none;"></div><div class="s-center-box"></div></div><div id="s_upfunc_menus" class="s-upfunc-menus">'   
 
-var pattern = /[\"|'](.*?)[\"|']/gi;
-var r = /["|'](.*)["|']/;
-
-while((result = pattern.exec(html))!= null){
-	console.log(result[0].match(r)[1]);
-}
+var reg = /(^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\u0021-\u002F\u003A-\u0040\u005B-\u0060\u007B-\u007E])[\u0021-\u007E]{6,16}$)|(^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E])[\x21-\x7E]{6,16}$)|((?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*)/;
+console.log(reg.test(html));
 
 ```
