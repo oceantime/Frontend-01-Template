@@ -2,20 +2,6 @@
 
 # JavaScript 表达式
 
-## 判断数字符号
-
-``` javascript
-function sign(number) {
-	if(1/number === Infinity) {
-    return 1;
-  }
-  if(1/number === -Infinity) {
-    return -1;
-  }
-  return number / Math.abs(number);
-}
-``` 
-
 ## Expressions
 
 ### Left Handside (赋值操作的目标) Reference 引用

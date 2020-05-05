@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	I learned Java&nbsp;Script today. I learned Java Script today. I learned Java&nbsp;Script today.
+	<script type="text/javascript">
+
+		for (let i = 0; i <= 128; i++) {
+			document.write(i + " <span style='background-color:lightgreen'>" + String.fromCharCode(i) + "</span><br/>")
+		}
+
+		console.log("厉害".codePointAt(0).toString(16));
+		console.log("厉害".codePointAt(1).toString(16));
+		var \u5389\u5bb3 = 1;
+		console.log(厉害);
+
+		console.log("\t".codePointAt(0));
+		console.log("\v".codePointAt(0));
+		console.log("\u00A0");
+
+		document.body.setAttribute("class", "a");
+		console.log(document.body.className);
+
+
+		var undefined = 5; //改不了值
+		console.log(undefined);
+	    void function() {
+	      var undefined = 5; //
+	      console.log(undefined);
+	    }();
+
+	</script>
+</body>
+</html>

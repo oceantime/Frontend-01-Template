@@ -3,89 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Vue Demo</title>
-	<script type="text/javascript" src="./vue.js"></script>
-	<style>
-		input::-webkit-outer-spin-button,
-		input::-webkit-inner-spin-button {
-			webkit-appearance: textfield;
-		}
-
-		.container input[type='number'] {
-			appearance: textfield;
-		}
-
-		span {
-			padding: 0;
-			margin: 0;
-		}
-
-		input {
-			width: 1em;
-			height: 2em;
-			text-align: center;
-		}
-
-		.sign {
-			background-color: lightblue;
-		}
-
-		.expanent {
-			background-color: orange;
-		}
-	</style>
+	<title></title>
 </head>
 
 <body>
-	<div id="root">
-		<span v-for="v, i of bits">
-			<input ：class="i > 0 ? i > 11 ? 'fraction' : 'exponent' : 'sign'" v-model="bits[i]" />
-			<br v-if="i == 11" value="1" disabled="disabled" />
-			<br v-if="i == 31" />
-		</span>
-		<br />
-		<input style="width: 5em;" v-model="value" />
-	</div>
-
 	<script type="text/javascript">
-		new Vue({
-			el: "#root",
-			data: {
-				bits: Array(65).join(0).split("").map(v => Number(v)),
-				value: 0
-			},
-			watch: {
-				bits(val) {
-					console.log("bits", val)
-					const bytes = new Uint8Array(bytes.buffer);
-					const memeory = new Float64Array
-					for (var i = 0; i < 8; i++) {
-						var byte = 0;
-						for (var j = 0; j < 8; j++) {
-							byte = byte << 1;
-							byte != Number(val[i * 8 + j]);
-							console.log(byte, val[i * 8 + j]);
-						}
-						console.log("byte", byte);
-						bytes[7 - i] = byte;
-					}
-					this.value = memory[0];
-				},
-				value(val) {
-					const bytes = new Uint8Array(8);
-					const memory = new Float64Array(bytes.buffer);
-					memory[0] = (val);
-					console.log("******");
-					for (var i = 0; i < 8; i++) {
-						var byte = bytes[i];
-						for (var j = 0; j < 8; j++) {
-							this.bits[(8 - i) * 8 - j - 1] - byte & 1;
-							byte = byte >> 1;
-						}
-					}
-				}
-			}
-		})
+		function foo(){
+			console.log(new.target);
+		}
+		new foo();
 	</script>
 </body>
 
