@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object of Realm</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css?2020-05-10">
+
+</head>
+<body>
+
+<div class="wrapper superwide">
+
+    <div id="preload">
+        <div class="content">
+            <div class="content_box">
+                <div class="notification">
+                    <h2 class="highlight">加载中...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="error" style="display: none;">
+        <div class="content">
+            <div class="content_box">
+                <div class="notification">
+                    <h2 class="highlight">可视化加载异常</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" style="display: none;">
+        <ul id="samples" class="tab_navigation col-1-6 objects">
+        </ul>
+        <div class="content">
+            <div class="content_box">
+                <div class="main codearea">
+                    <div class="col-3-4">
+                        <textarea id="usercode"></textarea>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="aside">
+                            <table>
+                                <tr>
+                                    <td><input id="builtins" type="checkbox"></td>
+                                    <td><label for="builtins">显示所有 objects</label></td>
+                                </tr>
+                                <tr>
+                                    <td><input id="functions" type="checkbox"></td>
+                                    <td><label for="functions">显示所有 functions</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <input type="submit" id="evaluate" class="button" value="加载">
+                    </div>
+                </div>
+                <div class="wrapper superwide graph">
+                    <div id="mountNode"></div>
+                    <div id="graph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="viz/viz.js"></script>
+<script type="text/javascript" src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.4.9/dist/g6.min.js"></script>
+
+<script type="text/javascript" src="object_node.js?2020-05-10"></script>
+<script type="text/javascript" src="object_graph.js?2020-05-10"></script>
+<script type="text/javascript" src="viz_visualizer.js?2020-05-10"></script>
+<script type="text/javascript" src="user_code.js?2020-05-10"></script>
+<script type="text/javascript" src="ui.js??2020-05-10"></script>
+
+<script>
+    window.onload = function() {
+        jdls.ui.initialize({
+            preloadDiv: document.getElementById("preload"),
+            errorDiv: document.getElementById("error"),
+            contentDiv: document.getElementById("content"),
+            samplesList: document.getElementById("samples"),
+            userCodeTextArea: document.getElementById("usercode"),
+            evaluateButton: document.getElementById("evaluate"),
+            showBuiltinsCheckbox: document.getElementById("builtins"),
+            showAllFunctionsCheckbox: document.getElementById("functions"),
+            graphDiv: document.getElementById("graph")
+        });
+    };
+</script>
+
+</body>
+</html>
