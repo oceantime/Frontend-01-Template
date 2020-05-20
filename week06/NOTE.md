@@ -13,26 +13,26 @@
 
 作业：使用有限状态机处理字符串
 start(c)
-匹配“abababx”
+匹配 "abababx"
 可选： 撞击处理完全未知的pattern
 参考： 字符串KMP算法
 
-## 简单HTML解析
+## 简单 HTML 解析
 
 ##### 浏览器解析请求返回的 html 代码 
 字节流 -> 状态机 -> 词token -> 栈 -> DOM树
 
 ##### 浏览器处理 html 流程
-url--(http) -> html--(parse) -> dom--(css computing) -> dom with css --(layout) -> dom with position--(render) -> bitmap
+url--(http) -> html--(parse) -> dom--(css computing) -> dom with css--(layout) -> dom with position--(render) -> bitmap
 
 ### 第一步： 拆分文件
-- 为了方便文件管理，把parse单独拆到文件中
-- parser接受HTML文本作为参数，返回一颗DOM树
+- 为了方便文件管理，把 parse 单独拆到文件中
+- parser 接受 HTML 文本作为参数，返回一颗 DOM 树
 - ./toy-brower/html-parser/1/parse.js
 
 ### 第二步： 创建状态机
-- 使用FSM实现HTML分析
-- 在HTML标签中，已经规定了HTML的状态
+- 使用 FSM 实现 HTML 分析
+- 在 HTML 标签中，已经规定了 HTML 的状态
 - ./toy-brower/html-parser/2/parse.js
 
 ### 第三步： 解析标签
@@ -41,13 +41,13 @@ url--(http) -> html--(parse) -> dom--(css computing) -> dom with css --(layout) 
 
 ### 第四步： 创建元素
 - 在状态机中，除了状态迁移，我们还要加入业务逻辑
-- 在标签结束状态提交标签token
+- 在标签结束状态提交标签 token
 - ./toy-brower/html-parser/4/parse.js
 
 ### 第五步： 处理属性
 - 属性值分为单引号、双引号、无引号三种写法，因此需要较多状态处理
 - 处理属性的方式和标签类似
-- 属性结束时，把属性加到标签token上
+- 属性结束时，把属性加到标签 token 上
 - ./toy-brower/html-parser/5/parse.js
 
 ### 第六步： 构建DOM树
@@ -62,7 +62,7 @@ url--(http) -> html--(parse) -> dom--(css computing) -> dom with css --(layout) 
 - 多个文本节点需要合并
 - ./toy-brower/html-parser/7/parse.js
 
-## CSS Computing
+## CSS Computing 
 
 ### 第一步： 收集CSS规则
 - 遇到 style 标签时，我们把 CSS 规则保存起来
@@ -92,7 +92,7 @@ url--(http) -> html--(parse) -> dom--(css computing) -> dom with css --(layout) 
 - 这里仅实现了三种基本选择器，实际的浏览器中要处理复合选择器
 - ./toy-brower/css-parser/5/parse.js
 
-### 第六步： 生成Computed属性
+### 第六步： 生成 Computed 属性
 - 一旦选择匹配，就应用选择器到元素上，形成 computedStyle
 - ./toy-brower/css-parser/6/parse.js
 
