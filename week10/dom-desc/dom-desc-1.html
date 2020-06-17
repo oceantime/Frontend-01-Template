@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>基础</title>
+</head>
+<body>
+	<div id="a">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+	</div>
+
+	<script>
+	let element = document.getElementById("a");
+
+	function reverseChildren(element){
+		let children = Array.prototype.slice.call(element.childNodes);
+		
+		//for(let child of children){
+			//element.removeChild(child);
+		//}
+		element.innerHTML = "" // dom 会自动remove
+		
+		children.reverse();
+		
+		for(let child of children){
+			element.appendChild(child)
+		}
+	}
+	reverseChildren(element)
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>利用dom移动元素功能</title>
+</head>
+<body>
+	<div id="a">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+	</div>
+
+	<script>
+	    let element = document.getElementById("a");
+		 
+		 function reverseChildren(element){
+	         var l = element.childNodes.length;
+	         while(l-- >0){
+	             element.appendChild(element.childNodes[l])
+	         }
+	     }
+		 reverseChildren(element);
+	</script>
+</body>
+</html>
