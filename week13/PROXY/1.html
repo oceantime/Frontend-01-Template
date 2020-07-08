@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let object = {
+        a: 1,
+        b: 2,
+      };
+
+      let proxy = new Proxy(object, {
+        get(obj, prop) {
+          console.log(obj, prop);
+          return obj[prop];
+        },
+        defineProperty(obj, prop, desc) {
+          console.log(arguments);
+          return Object.defineProperty(obj, prop, desc);
+        },
+      });
+    </script>
+  </body>
+</html>
