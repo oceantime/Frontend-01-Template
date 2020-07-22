@@ -1,5 +1,4 @@
-import {createElement, Text, Wrapper} from "./createElement";
-// import {Carousel} from "./carousel.view";
+import {createElement, Text, Wrapper} from "./createElement"
 
 // class MyComponent {
 //     constructor(config) {
