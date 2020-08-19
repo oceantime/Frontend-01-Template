@@ -13,7 +13,6 @@
 * publish-server
 * server
 
-
 ### 上传流式文件
 
 在 publish-tool 文件夹中添加 publish.js 文件并添加如下内容，这样就可以流式上传图片了：
@@ -53,8 +52,6 @@ fs.stat(filename, (error, stat) => {
     });
 });
 ```
-
-
 
 ### 接收流式文件
 
@@ -138,8 +135,6 @@ archive.on('end', () => {
     req.end();
 });
 ```
-
-
 
 ### 解压文件
 
