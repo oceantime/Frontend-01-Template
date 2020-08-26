@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require @babel/register",
+    "coverage": "nyc mocha",
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
-  "author": "front-boy",
-  "license": "MIT",
-  "dependencies": {
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
     "yeoman-generator": "^4.11.0"
   }
 }
